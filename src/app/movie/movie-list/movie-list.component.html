@@ -1,0 +1,12 @@
+<div class="basic-container">
+    
+        <ul>
+            <li *ngFor = "let m of movies.results; last as last">
+                <img matListAvatar src={{img+m.poster_path}} alt="...">
+                <em>{{m.original_title}}</em>
+                <span> {{m.overview}} </span>
+                <span class="demo-2"> -- {{m.overview}} </span>
+            </li>
+        </ul>
+        
+</div>
