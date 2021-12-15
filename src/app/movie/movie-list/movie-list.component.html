@@ -1,12 +1,17 @@
 <div class="basic-container">
-    
-        <ul>
-            <li *ngFor = "let m of movies.results; last as last">
-                <img matListAvatar src={{img+m.poster_path}} alt="...">
-                <em>{{m.original_title}}</em>
-                <span> {{m.overview}} </span>
-                <span class="demo-2"> -- {{m.overview}} </span>
-            </li>
-        </ul>
-        
+
+  <div *ngIf = "movies" class="movies">
+    <div *ngFor = "let m of movies.results; index as position"
+    style="cursor: pointer;"
+    (click)="onClick(m.id)" 
+    class="ligne">
+      <div class="img-div">
+        <img src={{img+m.poster_path}} alt="{{m.original_title}}">
+      </div>
+      <div class="title-div">
+        <h3>{{m.original_title}}</h3>
+        <p>{{m.overview}}</p>
+      </div>      
+    </div>
+  </div>
 </div>

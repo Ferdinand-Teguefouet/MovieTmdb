@@ -11,12 +11,13 @@ export class MovieListComponent implements OnInit {
 
   movies! : Movie
   img! : string
+  url_movie: string = "/movie/top_rated?api_key=62f623f39673f5defe37553f5d64bddc&language=en-US"
 
   constructor(private readonly _mService: MovieService,) { }
 
   ngOnInit(): void {
     this.img = this._mService.url_img;
-    this.loadMovie(this._mService.url_api);
+    this.loadMovie(this._mService.url_api+this.url_movie);
   }
 
   loadMovie(url: string){
@@ -26,5 +27,10 @@ export class MovieListComponent implements OnInit {
         console.log(this.movies)
       }
     )
+  }
+
+  onClick(id: number){
+    console.log(id);
+    
   }
 }

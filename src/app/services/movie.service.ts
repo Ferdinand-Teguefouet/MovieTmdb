@@ -9,7 +9,7 @@ import { Movie } from '../movie/models/movie.model';
 export class MovieService {
 
   // Base url TMDB API
-  url_api : string = "https://api.themoviedb.org/3/movie/top_rated?api_key=62f623f39673f5defe37553f5d64bddc&language=en-US"
+  url_api : string = "https://api.themoviedb.org/3"
 
   // Base url TMDB image
   url_img : string = "https://image.tmdb.org/t/p/w500"

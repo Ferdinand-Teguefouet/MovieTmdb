@@ -6,14 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
-//import {MatCardModule} from '@angular/material/card';
+import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
+import { NavComponent } from './nav/nav.component';
 //import {MatActionListHarness} from '@angular/material/list/testing';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import {MatListModule} from '@angular/material/list';
     MovieModule,
     MatGridListModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ],
   exports: [
     MatListModule
