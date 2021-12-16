@@ -1,2 +1,96 @@
-
-<p>movie-detail works!</p>
+<div class="container"> 
+    <h3>Details du film "<span style="font-style: oblique;">{{oneMovie.original_title}}"</span></h3>           
+    <table class="table table-dark" *ngIf="oneMovie">
+      <tbody>
+        <tr>
+            <td>Titre</td>
+            <td>{{oneMovie.original_title}}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>{{oneMovie.overview}}</td>
+        </tr>
+        <tr>
+            <td>Langue originale du film</td>
+            <td>{{oneMovie.original_language}}</td>
+        </tr>
+        <tr>
+          <td>Image</td>
+          <td><img src="{{img+oneMovie.backdrop_path}}" alt="{{oneMovie.original_title}}"></td>
+        </tr>
+        <tr>
+            <td>Page d'accueil</td>
+            <td>
+               <a href="{{oneMovie.homepage}}" target="_blank">Lien vers la page d'accueil du film</a>
+            </td>
+          </tr>
+        <tr>
+          <td>Budget</td>
+          <td>
+             {{oneMovie.budget}}
+          </td>
+        </tr>
+        <tr>
+          <td>Genres</td>
+          <td>
+            <ul>
+                <li *ngFor="let genre of oneMovie.genres">
+                    {{genre.name}}
+                </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+            <td>Popularité</td>
+            <td>
+               {{oneMovie.popularity}}
+            </td>
+          </tr>
+          <tr>
+            <td>Maisons de production</td>
+            <td >
+                <span *ngFor="let pc of oneMovie.production_companies">
+                <span>Nom: <em>{{pc.name}}</em>  | Pays: <em>{{pc.origin_country}}</em> </span>
+                <hr style="margin-bottom: -10px;">
+                <br>
+                </span>               
+            </td>
+          </tr>
+        <tr>
+            <td>Pays de production</td>
+            <td >
+                <span *ngFor="let pp of oneMovie.production_countries">
+                <span>{{pp.name}}</span>
+                <hr style="margin-bottom: -10px;">
+                <br>
+                </span>               
+            </td>
+        </tr>
+        <tr>
+            <td>Date de sortie</td>
+            <td>
+               {{oneMovie.release_date}}
+            </td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>
+               {{oneMovie.status}}
+            </td>
+        </tr>
+        <tr>
+            <td>Note</td>
+            <td>
+               {{oneMovie.vote_average}}
+            </td>
+        </tr>
+        <tr>
+            <td>Nombre de votant</td>
+            <td>
+               {{oneMovie.vote_count}}
+            </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" routerLink="/movie-list" class="btn btn-back">Revenir à la liste</button>
+</div> 
