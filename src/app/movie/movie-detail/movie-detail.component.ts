@@ -12,4 +12,8 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getOneMovie(url: string){
+
+  }
+
 }

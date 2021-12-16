@@ -5,6 +5,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,9 +17,11 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatListModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    NgbModule
   ],
   exports:[
     MovieListComponent

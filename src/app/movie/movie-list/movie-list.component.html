@@ -1,17 +1,28 @@
-<div class="basic-container">
+<div class="content"> 
+  <div class="basic-container container container-fluid" *ngIf = "movies">
 
-  <div *ngIf = "movies" class="movies">
+  <div class="previous-next-top">
+    <button type="button" class="btn btn-pre btn-dark" (click)="clickPrevious()" [disabled] = "count == 1">Précédent</button>
+    <span>{{movies.page}}</span>
+    <button type="button" class="btn btn-nex btn-dark" (click)="clickNext()" [disabled] = "count == 31577">Suivant</button>
+  </div>
+  <div class="row line">
     <div *ngFor = "let m of movies.results; index as position"
-    style="cursor: pointer;"
-    (click)="onClick(m.id)" 
-    class="ligne">
-      <div class="img-div">
-        <img src={{img+m.poster_path}} alt="{{m.original_title}}">
+          style="cursor: pointer;"
+          (click)="onClick(m.id)" 
+          class="card thumnail col-sm-2 col-lg-3 col-md-4">
+      <img class="card-img-bottom" src={{img+m.poster_path}} alt="{{m.original_title}}" style="width:100%">
+      <div class="card-body">
+        <h6 class="card-title text-left">{{m.original_title}}</h6>
+        <a routerLink="movie-detail/+{{m.id}}" class="btn btn-detail btn-warning">Voir le detail</a>
       </div>
-      <div class="title-div">
-        <h3>{{m.original_title}}</h3>
-        <p>{{m.overview}}</p>
-      </div>      
     </div>
+  </div>
+
+  <div class="previous-next-bottom">
+    <button type="button" class="btn btn-pre btn-dark" (click)="clickPrevious()" [disabled] = "count == 1">Précédent</button>
+    <span>{{movies.page}}</span>
+    <button type="button" class="btn btn-nex btn-dark" (click)="clickNext()" [disabled] = "count == 31577">Suivant</button>
+  </div>
   </div>
 </div>

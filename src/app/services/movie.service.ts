@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Movie } from '../movie/models/movie.model';
+import { Movie, MovieDetail } from '../movie/models/movie.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,9 @@ getAll(url : string) : Observable<Movie>{
   return this._httpClient.get<Movie>(url)
 }
 
-
+GetById(url : string): Observable<MovieDetail>{
+  return this._httpClient.get<MovieDetail>(url)
+}
 
 
 }

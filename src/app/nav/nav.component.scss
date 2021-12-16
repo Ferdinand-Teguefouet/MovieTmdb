@@ -1,0 +1,22 @@
+.logo img{
+    height: 80px !important;
+    width: auto !important;
+}
+
+nav{
+    justify-content: space-between !important;
+    box-shadow: 2px 2px 2px 2px  #f0740f;
+}
+
+.bg-nav{
+    background-color: #333
+}
+
+li a{
+    color: whitesmoke;
+}
+
+li a:hover{
+    color: white;
+    font-weight: 500;
+}
