@@ -16,11 +16,17 @@ export class MovieListComponent implements OnInit {
   url_end: string = "&with_watch_monetization_types=free"
   count : number = 1
 
-  constructor(private readonly _mService: MovieService, private readonly _router: Router) { }
+  constructor(private readonly _mService: MovieService, 
+              private readonly _router: Router){ }
 
   ngOnInit(): void {
     this.img = this._mService.url_img;
-    this.loadMovie(this._mService.url_api+"/discover/movie?api_key=62f623f39673f5defe37553f5d64bddc&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=free");
+    if(sessionStorage.getItem('activePage') == null){
+      this.loadMovie(this._mService.url_api+"/discover/movie?api_key=62f623f39673f5defe37553f5d64bddc&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=free");
+    }else{
+      this.loadMovie(this._mService.url_api+"/discover/movie?api_key=62f623f39673f5defe37553f5d64bddc&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page="+sessionStorage.getItem('activePage')+"&with_watch_monetization_types=free");
+    }
+    
   }
 
   loadMovie(url: string){
@@ -52,5 +58,9 @@ export class MovieListComponent implements OnInit {
   onClick(id: number){
     console.log(id)
     this._router.navigate(['movie-detail/'+id])
+  }
+
+  savingPageNumberInSStorage(page:number){
+    sessionStorage.setItem('activePage', String(page))
   }
 }

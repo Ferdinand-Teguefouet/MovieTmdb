@@ -11,6 +11,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
 import { NavComponent } from './nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchModule } from './search/search.module';
 //import {MatActionListHarness} from '@angular/material/list/testing';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     BrowserAnimationsModule,
     MovieModule,
+    SearchModule,
     MatGridListModule,
     MatListModule,
     MatToolbarModule,
