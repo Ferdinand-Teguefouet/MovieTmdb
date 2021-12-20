@@ -12,6 +12,7 @@ import {MatListModule} from '@angular/material/list';
 import { NavComponent } from './nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchModule } from './search/search.module';
+import {ReactiveFormsModule} from '@angular/forms';
 //import {MatActionListHarness} from '@angular/material/list/testing';
 
 @NgModule({
@@ -30,7 +31,8 @@ import { SearchModule } from './search/search.module';
     MatListModule,
     MatToolbarModule,
     MatCardModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   exports: [
     MatListModule

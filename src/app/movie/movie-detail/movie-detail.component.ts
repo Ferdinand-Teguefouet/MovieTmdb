@@ -13,6 +13,7 @@ export class MovieDetailComponent implements OnInit {
   oneMovie!: MovieDetail
   img! : string
   id! : number
+  sStorage: any = sessionStorage.getItem('myQuery')
 
   constructor(private readonly _router: Router,
               private readonly _mService: MovieService,

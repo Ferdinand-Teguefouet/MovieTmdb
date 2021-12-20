@@ -1,24 +1,19 @@
 <div class="container">
- <form action="" style="margin: 50px 0 30px 0;">
-        <div class="row">
-            <div class="col-lg-8">
-            <label for="text">Chercher des films:</label>
-            <input type="text" formControlName = "queryControl" class="form-control">
-            </div></div>
-            
-                <button type="button" class="btn btn-light" (click)="query()">Chercher</button>
-                           
-        
-</form>
-
-
-
+  <form [formGroup] = "queryForm" (ngSubmit) = "onSubmit()" style="margin: 50px 0 30px 0;">
+    <div class="row">
+      <div class="col-lg-8">
+        <label id="search" for="text">Chercher des films</label>
+        <input type="text" formControlName = "query" class="form-control" placeholder="Rechercher..."><br>
+        <input type="submit" class="btn btn-light" value="Chercher"/>
+      </div>
+    </div>             
+  </form>
     <div class="basic-container container container-fluid" *ngIf = "foundMovies">
 
         <div class="previous-next-top">
           <button type="button" class="btn btn-pre btn-dark" (click)="clickPrevious()" [disabled] = "count == 1">Précédent</button>
           <span>{{foundMovies.page}}</span>
-          <button type="button" class="btn btn-nex btn-dark" (click)="clickNext()" [disabled] = "count == 31577">Suivant</button>
+          <button type="button" class="btn btn-nex btn-dark" (click)="clickNext()" [disabled] = "count == foundMovies.total_pages">Suivant</button>
         </div>
         <div class="row line">
           <div *ngFor = "let m of foundMovies.results; index as position"

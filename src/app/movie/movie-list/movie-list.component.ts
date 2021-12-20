@@ -21,6 +21,8 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit(): void {
     this.img = this._mService.url_img;
+    sessionStorage.removeItem('activePageOfSearch');
+    sessionStorage.removeItem('myQuery');
     if(sessionStorage.getItem('activePage') == null){
       this.loadMovie(this._mService.url_api+"/discover/movie?api_key=62f623f39673f5defe37553f5d64bddc&language=fr-FR&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=free");
     }else{

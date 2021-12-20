@@ -92,5 +92,5 @@
         </tr>
       </tbody>
     </table>
-    <button type="button" routerLink="/movie-list" class="btn btn-back">Revenir à la liste</button>
+    <button type="button" routerLink="{{sStorage != null? '/search-movie': '/movie-list'}}" class="btn btn-back">Revenir à la liste</button>
 </div> 
