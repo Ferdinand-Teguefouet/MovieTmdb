@@ -3,8 +3,10 @@
     <div class="row">
       <div class="col-lg-8">
         <label id="search" for="text">Chercher des films</label>
-        <input type="text" formControlName = "query" class="form-control" placeholder="Rechercher..."><br>
-        <input type="submit" class="btn btn-light" value="Chercher"/>
+        <input type="text" formControlName = "query" class="form-control" placeholder="Rechercher...">
+        <span style="color: #F0740F; font-weight: 700;" *ngIf="query && query.invalid && query.touched" >Votre recherche doit contenir au moins 3 lettres!</span>
+        <br><br>
+        <input [disabled] = "queryForm.invalid" type="submit" class="btn btn-light" value="Chercher"/>
       </div>
     </div>             
   </form>
@@ -21,7 +23,7 @@
                 (click)="savingPageNumberInSStorage(foundMovies.page)"
                 (click)="onClick(m.id)" 
                 class="card thumnail col-sm-2 col-lg-3 col-md-4">
-            <img class="card-img-bottom" src={{img+m.poster_path}} alt="{{m.original_title}}" style="width:100%">
+            <img class="card-img-bottom" src="{{!m.poster_path ? 'https://www.cerprogis.net/wp-content/plugins/wp-books-gallery/assets/img/noimage.jpg' : img+m.poster_path}}" alt="{{m.original_title}}" style="width:100%">
             <div class="card-body">
               <h6 class="card-title text-left">{{m.original_title}}</h6>
               <a routerLink="movie-detail/+{{m.id}}" class="btn btn-detail btn-warning">Voir le detail</a>

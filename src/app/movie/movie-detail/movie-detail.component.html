@@ -16,7 +16,7 @@
         </tr>
         <tr>
           <td>Image</td>
-          <td><img src="{{img+oneMovie.backdrop_path}}" alt="{{oneMovie.original_title}}"></td>
+          <td><img src="{{!oneMovie.backdrop_path ? 'https://www.lafermebaobab.com/annonce-3/5.jpg' : img+oneMovie.backdrop_path}}" alt="{{oneMovie.original_title}}"></td>
         </tr>
         <tr>
             <td>Page d'accueil</td>

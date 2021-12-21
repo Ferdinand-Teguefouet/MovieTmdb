@@ -12,7 +12,7 @@
           (click)="savingPageNumberInSStorage(movies.page)"
           (click)="onClick(m.id)" 
           class="card thumnail col-sm-2 col-lg-3 col-md-4">
-      <img class="card-img-bottom" src={{img+m.poster_path}} alt="{{m.original_title}}" style="width:100%">
+      <img class="card-img-bottom" src="{{!m.poster_path ? 'https://www.cerprogis.net/wp-content/plugins/wp-books-gallery/assets/img/noimage.jpg' : img+m.poster_path}}" alt="{{m.original_title}}" style="width:100%">
       <div class="card-body">
         <h6 class="card-title text-left">{{m.original_title}}</h6>
         <a routerLink="movie-detail/+{{m.id}}" class="btn btn-detail btn-warning">Voir le detail</a>

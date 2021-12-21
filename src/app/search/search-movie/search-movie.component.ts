@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, FormControl} from '@angular/forms';
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/movie/models/movie.model';
 import { MovieService } from 'src/app/services/movie.service';
@@ -20,8 +20,12 @@ export class SearchMovieComponent implements OnInit {
   count: any = 1
   //queryForm!: FormGroup
   queryForm = new FormGroup({
-    query: new FormControl(''),
+    query: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(3)]),
   })
+
+  get query(){
+    return this.queryForm.get('query');
+  }
 
   constructor(private readonly _mService: MovieService,
               private readonly _sService: SearchService, 
@@ -41,8 +45,6 @@ export class SearchMovieComponent implements OnInit {
     }
     
   }
-
-  
 
   loadFoundMovie(url: string){
     this._sService.getAll(url).subscribe(
@@ -83,12 +85,13 @@ export class SearchMovieComponent implements OnInit {
 
   onSubmit() {
     console.log(this.queryForm.value)
+    this.count = 1
     //sessionStorage.setItem('activePageOfSearch', String(this.count));
     sessionStorage.setItem('myQuery', String((this.queryForm.value).query));
     let myQuery = String((this.queryForm.value).query)
     let myPage = String(this.count)
-    console.warn(myPage)
-    console.warn(this._mService.url_api+this.url_01+myQuery+this.url_02+myPage+this.url_03)
+    //console.warn(myPage)
+    //console.warn(this._mService.url_api+this.url_01+myQuery+this.url_02+myPage+this.url_03)
     this.loadFoundMovie(this._mService.url_api+this.url_01+myQuery+this.url_02+myPage+this.url_03);  
   }
 }
